@@ -1,0 +1,18 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:#040605;color:#F5F2F0;font-family:var(--font-body);overflow-x:hidden}
+.bgfx{position:fixed;inset:0;z-index:-1;pointer-events:none;background:#040605;overflow:hidden}
+.bgfx i{position:absolute;border-radius:50%;filter:blur(90px);background:radial-gradient(#22E06B,transparent 70%);animation:drift 26s ease-in-out infinite alternate}
+.bgfx i:nth-child(1){width:60vw;height:60vw;left:-15vw;top:-10vw;opacity:.22}
+.bgfx i:nth-child(2){width:50vw;height:50vw;right:-15vw;top:40vh;background:radial-gradient(#0B5A2B,transparent 70%);opacity:.35;animation-duration:34s}
+.bgfx b{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20px 30px,#d8d5d255,transparent),radial-gradient(1px 1px at 90px 120px,#d8d5d233,transparent),radial-gradient(1.5px 1.5px at 160px 60px,#22E06B55,transparent);background-size:200px 200px;animation:dust 90s linear infinite}
+.bgfx u{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes drift{to{transform:translate(8vw,6vh) scale(1.15)}}
+@keyframes dust{to{background-position:0 -400px}}
+@keyframes ring{0%{transform:scale(.8);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.ring{position:absolute;inset:0;border:1px solid #22E06B;border-radius:50%;animation:ring 2.6s ease-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+:focus-visible{outline:2px solid #22E06B;outline-offset:3px}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{padding-bottom:env(safe-area-inset-bottom)}
+@media (max-width:640px){.bgfx i{filter:blur(55px)}.bgfx i:nth-child(1){width:90vw;height:90vw}.bgfx i:nth-child(2){width:80vw;height:80vw}}
