@@ -30,7 +30,7 @@ function Hero(){
       <div className="absolute w-[70vw] max-w-[700px] aspect-square rounded-full bg-doom/20 blur-[110px] -z-10 animate-pulse"/>
       <motion.p {...up(.3)} className="font-display text-xs tracking-[.5em] text-metal mb-6">DEEPLABS PRESENTS</motion.p>
       <motion.h1 {...up(.7)} className="font-display font-black text-[2.1rem] min-[400px]:text-5xl sm:text-7xl md:text-9xl tracking-[.08em] sm:tracking-[.12em] text-metal drop-shadow-[0_0_30px_rgba(34,224,107,.4)]">NEURAL CRUNCH</motion.h1>
-      <motion.p {...up(1.2)} className="font-display tracking-[.2em] sm:tracking-[.35em] text-xs sm:text-sm md:text-lg mt-6">THE NEXT CHAPTER BEGINS.</motion.p>
+      <motion.p {...up(1.2)} className="font-display tracking-[.2em] sm:tracking-[.35em] text-xs sm:text-sm md:text-lg mt-6">THE NEXT CHAPTER BEGINS.</motion.p>  
       <motion.p {...up(1.5)} className="font-display text-doom tracking-[.15em] sm:tracking-[.25em] mt-8 text-base sm:text-lg md:text-2xl">HACKATHON COMING SOON</motion.p>
       <motion.p {...up(1.7)} className="text-mute mt-4 max-w-md">Twelve challenges. One arena. The future is yours to build.</motion.p>
       <motion.a {...up(2)} href="#reveals" className="mt-10 active:scale-95 border border-doom bg-doom/10 hover:bg-doom/25 px-8 py-3 font-display text-xs tracking-[.3em] transition">ENTER THE INITIATIVE</motion.a>
