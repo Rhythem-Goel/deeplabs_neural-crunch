@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ChevronDown, Menu, X, Crosshair } from 'lucide-react'
-import type { Problem } from '@/lib/supabase'
+import type { Problem } from '@/lib/types'
 import { fetchPublic } from '@/lib/api'
 
 const links = [['HOME','home'],['REVEALS','reveals'],['ABOUT','about']]
@@ -53,6 +53,7 @@ function ProblemCard({p,i}:{p:Problem;i:number}){
         {p.category&&<span className="text-[10px] tracking-[.3em] text-mute mb-2">{p.category.toUpperCase()}</span>}
         <h3 className="font-display text-xl tracking-wider mb-3">{p.title||`Challenge ${n}`}</h3>
         <p className="text-metal/80 text-sm leading-relaxed whitespace-pre-line">{p.description||'Challenge details will be updated soon.'}</p>
+        {p.pdf_url&&<a href={p.pdf_url} target="_blank" rel="noopener noreferrer" className="mt-5 self-start border border-doom bg-doom/10 hover:bg-doom/25 px-4 py-3 font-display text-xs tracking-[.18em] transition">DOWNLOAD PROBLEM STATEMENT</a>}
       </motion.div>:
       <div className="flex-1 flex flex-col items-center justify-center gap-5">
         <div className="relative w-20 h-20 flex items-center justify-center"><span className="ring"/><span className="ring [animation-delay:1.3s]"/><Crosshair className="text-doom" size={34}/></div>
@@ -62,10 +63,10 @@ function ProblemCard({p,i}:{p:Problem;i:number}){
 }
 
 function Reveals(){
-  const [items,setItems]=useState<Problem[]>(Array.from({length:12},(_,i)=>({number:i+1,title:null,description:null,category:null,is_revealed:false})))
+  const [items,setItems]=useState<Problem[]>(Array.from({length:12},(_,i)=>({number:i+1,title:null,description:null,category:null,is_revealed:false,pdf_url:null})))
   useEffect(()=>{
     const load=async()=>{const data=await fetchPublic();if(data&&data.length)setItems(data)}
-    load();const t=setInterval(load,10000);const v=()=>document.visibilityState==='visible'&&load()
+    load();const t=setInterval(load,5000);const v=()=>document.visibilityState==='visible'&&load()
     document.addEventListener('visibilitychange',v);return()=>{clearInterval(t);document.removeEventListener('visibilitychange',v)}
   },[])
   return <section id="reveals" className="px-4 sm:px-6 py-20 sm:py-28 max-w-6xl mx-auto">
